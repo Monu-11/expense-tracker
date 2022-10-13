@@ -1,0 +1,194 @@
+.mainHeading{
+  margin-top:7vh;
+  background-color:orange;
+  padding:5px;
+  border-radius:5px;
+  width:400px
+}
+
+th,td{
+  padding: 15px;
+  margin:45px
+}
+td{
+  border:solid 1px black;
+  
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0 1em;
+}
+#modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+#modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+  margin-top:170px
+}
+
+#modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+i:hover{
+  cursor:pointer
+}
+
+.block_container{
+  border: solid black 1px;
+  width:600px;
+  padding:20px;
+  height:450px;
+  margin-top: 50px;
+  margin-left: -80px;
+}
+.block_container2{
+ 
+ /*  width:600px;
+  padding:30px;
+  height:450px; */
+  border:3px solid black;
+  padding: 30px;
+  width:600px;
+  height:500px;
+  border-radius: 20px;
+  background-color: lightblue;
+  box-shadow: 7px 7px 7px 7px;
+}
+
+
+.expenseParent {
+  margin-left: 530px;
+  text-align: center;
+}
+.expenseDiv, .searchDiv{
+  display: inline-block;
+  
+  padding: 1rem 1rem;
+  vertical-align: middle;
+}
+
+.expenseDiv{
+  margin-left: -550px;
+}
+.searchDiv{
+  margin-top: 0px;
+  margin-left: 90px;
+}
+
+.costDiv{
+  margin-left: 350px;
+  margin-top: -300px;
+}
+
+.loginPage{
+  margin-top: 7vh;
+  border:solid 2px black;
+  padding:30px
+
+}
+.registerPage{
+  margin-top: 7vh;
+  border:solid 2px black;
+  padding:30px
+}
+body{
+  background-color: #FFFFF0;
+
+}
+.flexbox-container{
+   display: flex;
+  
+}
+
+.fi{
+  width:300px;
+  margin:10px;
+  
+  align-content: center;
+
+}
+.test1{
+  min-height:350px;
+  
+}
+.test2{
+  min-height:200px;
+  margin-left: 150px;
+}
+.budgetContainer{
+  border:3px solid black;
+  padding: 30px;
+  width:600px;
+  border-radius: 20px;
+  background-color: lightblue;
+  box-shadow: 10px 10px 10px 10px;
+}
+.mainOverview{
+  display:flex;
+  justify-content: space-between;
+   
+  
+  width:1300px;
+  margin-left: -100px;
+}
+
+.addExpenseBtn:hover{
+
+  animation: shake 0.5s;
+
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+
+.categoryBtn:is(:hover, :focus){
+  outline:2px solid green;
+  outline-offset: 2px;
+  background-color: green;
+} 
+.budgetBtn:is(:hover, :focus){
+  outline:2px solid #0b88ef;
+  outline-offset: 2px;
+  background-color: #0b88ef;
+}
+
+
+table { border-collapse: collapse; empty-cells: show; }
+
+td { position: relative; }
+
+tr.strikeout td:before {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  width: 100%;
+}
+
+tr.strikeout td:after {
+  content: "\00B7";
+  font-size: 1px;
+}
