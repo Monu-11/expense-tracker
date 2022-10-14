@@ -62,6 +62,8 @@ const ExpenseTable=React.memo((props)=>{
     return (
         <div>
             {finalArr.length===0?<h2>{searchText?'No expenses found':'No expenses found. Add your first!'}</h2>:
+            <>
+                <h3>Total Expenses - {(searchText.length>0?finalArr:allExpenses).length}</h3>
                         <table className='table  table-hover table-dark'>
                         <thead>
                                 <tr >
@@ -73,6 +75,7 @@ const ExpenseTable=React.memo((props)=>{
                                 
                         </thead>
                         <tbody>
+
                         {finalArr.map((expense)=>{
                             return <tr key={expense._id} style={{textDecoration:expense.isDeleted?'line-through':'none'}} className={expense.isDeleted&&'table-active'}>
                                  <ExpenseItem expense={expense} categories={categories}/> 
@@ -81,6 +84,7 @@ const ExpenseTable=React.memo((props)=>{
                                     
                             </tbody>
                     </table>
+               </>     
                         }
 
 <nav>
@@ -89,7 +93,7 @@ const ExpenseTable=React.memo((props)=>{
                     return <li key={number} className='page-item'>
                         <a href='#' onClick={()=>{
                             console.log('clicked page',number)
-                             paginate(number) }} className='page-link'>
+                             paginate(number) }} className='page-link' style={{fontWeight:currentPage==number&&'bold',color:currentPage==number&&'white', backgroundColor:currentPage==number&&'grey'}}>
                             {number}
                         </a>
                     </li>
