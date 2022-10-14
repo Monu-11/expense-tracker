@@ -12,13 +12,20 @@ const UserProfile=(props)=>{
     const dispatch=useDispatch()
     const [image,setImage]=useState()
     const [name,setName]=useState('')
-    const handleChange=(e)=>{
+    console.log('name',name)
+    const handleFileUpload=(e)=>{
         const type=e.target.name
         const val=e.target.value
         console.log(e.target.files[0])
-        type==='image'?setImage(e.target.files[0]):setName(val)
+        setImage(e.target.files[0])
+    }
+    const handleChange=(e)=>{
+        setName(e.target.value)
     }
 
+    const handleSubmit=()=>{
+
+    }
     const handleButtonClick=()=>{
         const data=new FormData()
         data.append('file',image)
@@ -37,13 +44,18 @@ const UserProfile=(props)=>{
                     <label>Please upload a profile picture</label><br />
                     <div className="mb-3">
                         
-                        <input className="form-control" type="file" id="formFile" onChange={handleChange} name='image' />
+                        <input className="form-control" type="file" id="formFile" onChange={handleFileUpload} name='image' />
                     </div>
                     
                   </form>
-                  <button className='btn btn-primary' onClick={handleButtonClick}>Send</button>
+                  <button className='btn btn-primary' onClick={handleButtonClick}>Send</button><br /><br />
                     </div>
                 }
+                <form onSubmit={handleSubmit}>
+                    <input className='form-control'type='text' value={name} name='name' placeholder='Set a profile name' onChange={handleChange} /><br />
+                    <input type='submit' value='OK'/>
+                </form>
+
                 
             </center>
 

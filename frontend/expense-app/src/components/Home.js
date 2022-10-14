@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import '../App.css';
 import AddExpense from './AddExpense';
-
+import BudgetOverview from './BudgetOverview';
 import ExpenseTable from './ExpenseTable';
 import SearchBar from './SearchBar';
 import TestComp from './TestComp';

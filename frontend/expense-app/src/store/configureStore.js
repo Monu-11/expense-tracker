@@ -1,6 +1,6 @@
 import {combineReducers,createStore,applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
-
+import pageReducer from '../reducers/pageReducer'
 import budgetReducer from '../reducers/budgetReducer'
 import categoryReducer from '../reducers/categoryReducer'
 import expenseReducer from '../reducers/expenseReducer'
@@ -14,7 +14,8 @@ const configureStore=()=>{
         categories:categoryReducer,
         expenses:expenseReducer,
         deletedExpenses:deletedExpensesReducer,
-        profilePic:userReducer
+        profilePic:userReducer,
+        pageNum:pageReducer
     }),applyMiddleware(thunk))
     return store
 }
