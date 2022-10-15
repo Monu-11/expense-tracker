@@ -97,9 +97,36 @@ userController.uploadPic=(req,res)=>{
     User.findOneAndUpdate({_id:user._id},{picture:req.file.path},{new:true,runValidators:true})
         .then((result)=>{
             console.log(result)
-            res.json({profilePic:result.picture})
+            res.json({name:result.name,email:result.email,picture:result.picture})
         })
     
+}
+
+userController.insertName=(req,res)=>{
+    const user=req.user
+    User.findOneAndUpdate({_id:user._id},req.body,{new:true,runValidators:true})
+        .then((result)=>{
+            console.log(result)
+            res.json({name:result.name,email:result.email,picture:result.picture})
+        })
+}
+
+userController.getInfo=(req,res)=>{
+    const user=req.user
+    User.findOne({_id:user._id})
+        .then((result)=>{
+            console.log(result)
+            res.json({name:result.name,email:result.email,picture:result.picture})
+        })
+}
+
+userController.setName=(req,res)=>{
+    const user=req.user
+    User.findOneAndUpdate({_id:user._id},{name:req.body.name},{new:true,runValidators:true})
+    .then((result)=>{
+        console.log(result)
+        res.json({name:result.name})
+    })
 }
 
 module.exports=userController

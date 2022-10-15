@@ -54,7 +54,7 @@ const BudgetOverview=(props)=>{
                     <div className='fi test2'>
                         
                             <h3>Total Budget</h3>
-                            <h4>Rs. {budget?budget.amount:'0'}</h4><br /><br />
+                            <h4>Rs. {Object.keys(budget).length>0?budget.amount:'0'}</h4><br /><br />
                             <h3>Total Expenses</h3>
                             <h4>Rs. {expensesAmount}</h4>
                         

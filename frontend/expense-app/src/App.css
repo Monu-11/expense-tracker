@@ -1,5 +1,5 @@
 .mainHeading{
-  margin-top:7vh;
+  margin-top:10vh;
   background-color:orange;
   padding:5px;
   border-radius:5px;
@@ -92,13 +92,18 @@ i:hover{
 .loginPage{
   margin-top: 7vh;
   border:solid 2px black;
-  padding:30px
+  padding:30px;
+  border-radius:10px;
+  box-shadow: 10px 10px 10px 10px;;
 
 }
 .registerPage{
   margin-top: 7vh;
   border:solid 2px black;
-  padding:30px
+  padding:30px;
+  border-radius:10px;
+  box-shadow: 10px 10px 10px 10px;;
+
 }
 body{
   background-color: #FFFFF0;

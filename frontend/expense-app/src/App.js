@@ -7,6 +7,7 @@ import { startGetBudget } from './actions/budgetAction';
 import { startGetCategories } from './actions/categoriesAction';
 import { startGetExpenses } from './actions/ExpenseAction';
 import { startGetAllDeletedExpenses } from './actions/deletedExpensesAction';
+import {startGetPicture} from './actions/userAction'
 
 import TabComp from './TabComp';
 
@@ -23,6 +24,7 @@ const App=(props)=>{
       dispatch(startGetAllDeletedExpenses(token))
       //dispatch(startGetUser())
       dispatch(startGetBudget(token)) 
+      dispatch(startGetPicture(token))
       props.history.replace('/home')
     }
     else {

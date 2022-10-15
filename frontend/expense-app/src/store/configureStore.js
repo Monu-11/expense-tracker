@@ -14,7 +14,7 @@ const configureStore=()=>{
         categories:categoryReducer,
         expenses:expenseReducer,
         deletedExpenses:deletedExpensesReducer,
-        profilePic:userReducer,
+        userInfo:userReducer,
         pageNum:pageReducer
     }),applyMiddleware(thunk))
     return store

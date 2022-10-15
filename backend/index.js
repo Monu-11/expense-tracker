@@ -3,6 +3,7 @@ const port =3050
 const app=express()
 const cors=require('cors')
 app.use(cors())
+app.use('/images',express.static('images'))
 const configureDb=require('./config/database')
 configureDb()
 app.use(express.json())

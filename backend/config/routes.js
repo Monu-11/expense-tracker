@@ -6,7 +6,7 @@ const multer=require('multer')
 const fileStorage=multer.diskStorage({
     destination:(req,file,cb)=>{
         const user=req.user
-        cb(null,"../../expense-app/frontend/images");
+        cb(null,"./images");
         },
 
         filename:(req,file,cb)=>{
@@ -26,10 +26,15 @@ const updateExpenses=require('../app/middleware/updateExpenses')
 const encryptPassword=require('../app/middleware/encryptPassword')
 const authenticateUser=require('../app/middleware/authenticateUser')
 const uploadImage=require('../app/middleware/uploadImage')
+
 router.get('/api/register',userController.showUser)
 router.post('/api/register',encryptPassword,userController.createUser)  //create a middleware to set up uncategorised category by default
 router.post('/api/login',userController.login)
 router.put('/api/user/pic',authenticateUser,upload.single('file'),userController.uploadPic)
+router.put('/api/user/name',authenticateUser,userController.insertName)
+router.put('/api/user/name',authenticateUser,userController.setName)
+router.get('/api/user/info',authenticateUser,userController.getInfo)
+
 
 router.get('/api/categories',authenticateUser,categoryController.show)
 router.get('/api/categories/:id',authenticateUser,categoryController.list)

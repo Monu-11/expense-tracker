@@ -19,6 +19,7 @@ expenseController.show=(req,res)=>{
     Expense.findOne({userId:user._id,_id:id})
         .then((expenses)=>{
             res.json(expenses)
+
         })
         .catch((err)=>{
             res.json(err.message)

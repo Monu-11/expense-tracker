@@ -3,7 +3,7 @@ import { clearBudget,startGetBudget } from './budgetAction'
 import { clearCategories,startGetCategories } from './categoriesAction'
 import { clearExpenses,startGetExpenses } from './ExpenseAction'
 import { startGetAllDeletedExpenses,clearDeletedExpenses } from './deletedExpensesAction';
-
+import { clearUserInfo, startGetPicture } from './userAction';
 
 export const startLogin=(loginData,clearInput,redirect,setFormIssues)=>{
     return (dispatch)=>{
@@ -19,7 +19,7 @@ export const startLogin=(loginData,clearInput,redirect,setFormIssues)=>{
                     dispatch(startGetAllDeletedExpenses(res.data))
                     //dispatch(startGetUser())
                     dispatch(startGetBudget(res.data)) 
-
+                    dispatch(startGetPicture(res.data))
                     clearInput()
                     redirect()
                 }
@@ -52,6 +52,7 @@ export const startlogout=()=>{
         dispatch(clearExpenses())
         dispatch(clearCategories())
         dispatch(clearDeletedExpenses())
+        dispatch(clearUserInfo())
     }
 }
 
