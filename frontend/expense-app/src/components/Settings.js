@@ -74,10 +74,10 @@ const Settings=(props)=>{
             </form><br />
             <CategoryForm /> <br />         
             <h3>Listing all added categories :</h3>
-            <ul className='list-group'>
+            <ul className='list-group' >
                 {validCategories.length==0?<h3>No Categories added yet. Add your first!</h3>:
                         validCategories.map((category)=>{
-                            return <li key={category._id} className='list-group-item '  style={{backgroundColor:'PowderBlue'}}><CategoryItem category={category} token={token}/></li>
+                            return <li key={category._id} className='list-group-item '  style={{backgroundColor:'PowderBlue',marginTop:'10px'}}><CategoryItem category={category} token={token}/></li>
                         })
                 }
                 

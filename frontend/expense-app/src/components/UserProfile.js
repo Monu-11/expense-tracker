@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { startAddProfilePicture,startAddName } from '../actions/userAction' 
 import { useDispatch,useSelector } from 'react-redux'
+import userPage from '../img/registerImage.avif'
 
 const UserProfile=(props)=>{
     
@@ -40,9 +41,9 @@ const UserProfile=(props)=>{
 
     return (
         <div>
-            <center><h1>User Profile</h1>
-            <div style={{border:'solid 1px black', padding:'40px'}}>
-               <div> {(name||image)&&<i className="bi bi-pencil-square" ></i>}</div>
+            <center><h1>User Profile</h1><br /><br />
+            <div style={{border:'solid 1px black', padding:'40px', borderRadius:'10px',backgroundImage:`url(${userPage})`,boxShadow:'7px 7px 7px 7px',backgroundSize:'cover'}}>
+               {/* <div> {(name||image)&&<i className="bi bi-pencil-square" ></i>}</div> */}
                 {userInfo.hasOwnProperty('picture')?<><img src={`http://localhost:3050/images/${userInfo.picture.slice(7)}`} /><br /><br /></>:
                     <div>
                         <form >
@@ -64,7 +65,7 @@ const UserProfile=(props)=>{
                     </>:
                  <form onSubmit={handleSubmit}>
                  <input className='form-control'type='text' value={name} name='name' placeholder='Set a profile name' onChange={handleChange} /><br />
-                 <input type='submit' value='OK'/>
+                 <input type='submit' className='btn btn-primary' value='OK'/>
              </form>}
                
 
