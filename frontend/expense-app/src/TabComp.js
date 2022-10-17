@@ -10,6 +10,7 @@ import {useSelector,useDispatch} from 'react-redux'
 import { startlogout } from './actions/loginAction'
 import PrivateRoute from './components/PrivateRoute';
 import UserProfile from './components/UserProfile';
+import swal from 'sweetalert'
 
 const TabComp=(props)=>{
   const dispatch=useDispatch()
@@ -21,12 +22,22 @@ const TabComp=(props)=>{
   console.log(token)
   
   const handleLogOut=()=>{
-    let con=window.confirm('Are you sure you want to log out?')
-    if(con){
-      console.log('Log out')
-      dispatch(startlogout())
-      props.history.replace('/login')
-    }
+    
+    swal({
+      title: "Are you sure you want to log out?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willLogout) => {
+      if (willLogout) {
+        console.log('Log out')
+        dispatch(startlogout())
+        props.history.replace('/login')
+      } else {
+        
+      }
+    });
     
   }
   return (
@@ -37,7 +48,8 @@ const TabComp=(props)=>{
       {/* <Route path='/register' exact component={RegisterForm}/> */} 
        <Route path='/' render={(history)=>(
           <AppBar>
-          <Tabs value={history.location.pathname!=='/'?history.location.pathname:false}>
+          <Tabs value={history.location.pathname!=='/'?history.location.pathname:false}
+          >
             {console.log('history',history.location.pathname)}
             {!token?<Tab label='Register' value='/register' component={Link} to='/register'/>:
                           <Tab label='Home' value='/home' component={Link} to='/home'/>
