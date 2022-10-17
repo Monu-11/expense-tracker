@@ -65,7 +65,7 @@ const RegisterForm=(props)=>{
     
     return (
         <div className='registerPage' style={{backgroundImage:`url(${registerImage2})`, backgroundSize:'cover'}}>
-            <center><h1>User Registration form</h1></center><br />
+            <center><h1>User Registration page</h1></center><br />
             <form onSubmit={handleSubmit}>
                 <input type='text' className='form-control' placeholder='Enter a valid email address' value={email} name='email' onChange={handleChange}/><br />
                 {formErrors.emailError&&<p style={{color:'red'}}>{formErrors.emailError}</p>}<br />

@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import {useSelector,useDispatch} from 'react-redux'
-import { startCreateBudget,startGetBudget } from '../actions/budgetAction'
-import { startCreateCategory,startGetCategories } from '../actions/categoriesAction'
+import { startCreateBudget } from '../actions/budgetAction'
 import CategoryItem from './categoryItem'
 import CategoryForm from './categoryForm'
 import 'bootstrap/dist/css/bootstrap.min.css';

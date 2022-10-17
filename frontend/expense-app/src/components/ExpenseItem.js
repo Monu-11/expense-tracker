@@ -56,7 +56,7 @@ const ExpenseItem=(props)=>{
     
     return (
         <>
-            <td style={{color:getCategory(expense._id)=='uncategorized'?'red':'white', opacity:expense.isDeleted?'0.5':1}}>{getCategory(expense._id)}</td>
+            {categories.length>0&&<td style={{color:getCategory(expense._id)=='uncategorized'?'red':'white', opacity:expense.isDeleted?'0.5':1}}>{getCategory(expense._id)}</td>}
             <td style={{opacity:expense.isDeleted?'0.5':1}} >{expense.name}</td>
             <td  style={{opacity:expense.isDeleted?'0.5':1}}>{expense.amount}</td>
             <td  style={{opacity:expense.isDeleted?'0.5':1}}> {expense.date.slice(0,10)}</td>

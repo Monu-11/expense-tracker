@@ -15,6 +15,7 @@ const TabComp=(props)=>{
   const dispatch=useDispatch()
   const expenses=useSelector(state=>state.expenses)
   const categories=useSelector(state=>state.categories)
+  const userInfo=useSelector(state=>state.userInfo)
   console.log('inside TabComp',expenses)
   const token=JSON.parse(localStorage.getItem('jwtToken'))
   console.log(token)
@@ -46,7 +47,10 @@ const TabComp=(props)=>{
                 <Tab label='Settings' value='/settings' component={Link} to='/settings'/>
                 <Tab label='Profile' value='/profile' component={Link} to='/profile'/>
                 <Button style={{color:'yellow'}} onClick={handleLogOut}>Logout</Button>  
-                
+                {userInfo.picture&&<>
+                {userInfo.name&&<p style={{marginLeft:'770px', marginTop:'10px'}}>Hi, {userInfo.name}</p>}
+                <img src={`http://localhost:3050/images/${userInfo.picture.slice(7)}`} style={{height:'40px',marginLeft:'10px', marginTop:'5px', width:'40px'}} />
+                </>}
             </>
                           
             }
@@ -68,7 +72,7 @@ const TabComp=(props)=>{
         <Switch>
           <Route path='/register' exact component={RegisterForm} />
           <Route path='/login' component={LoginPage} />
-          <PrivateRoute path='/home' render={(props)=><Home expenses={expenses} categories={categories} />} />
+          <PrivateRoute path='/home' render={(props)=><Home {...props} />} />
           <PrivateRoute path='/settings' render={(props)=><Settings {...props} />}/>
           <PrivateRoute path='/profile' render={(props)=><UserProfile {...props} />}/>
         </Switch>

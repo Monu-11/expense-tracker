@@ -5,6 +5,9 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { startAddProfilePicture,startAddName } from '../actions/userAction' 
 import { useDispatch,useSelector } from 'react-redux'
 import userPage from '../img/registerImage.avif'
+import swal from 'sweetalert'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Modal, Button} from 'react-bootstrap';
 
 const UserProfile=(props)=>{
     
@@ -15,6 +18,8 @@ const UserProfile=(props)=>{
     const [image,setImage]=useState(userInfo.hasOwnProperty('picture')?userInfo.picture:null)
     const [name,setName]=useState(userInfo.hasOwnProperty('name')?userInfo.name:null)
     const [toggle,setToggle]=useState(false)
+    const [fileToggle,setfileToggle]=useState(false)
+
     console.log('name',name)
     const handleFileUpload=(e)=>{
         const type=e.target.name
@@ -38,13 +43,21 @@ const UserProfile=(props)=>{
         dispatch(startAddProfilePicture(data,token)) 
         
   }
-
+    const handleEditName=()=>{
+        setToggle(true)
+    }
+  
+    const handleClose=()=>{
+        setfileToggle(false)
+        setToggle(false)
+    }
     return (
         <div>
             <center><h1>User Profile</h1><br /><br />
             <div style={{border:'solid 1px black', padding:'40px', borderRadius:'10px',backgroundImage:`url(${userPage})`,boxShadow:'7px 7px 7px 7px',backgroundSize:'cover'}}>
                {/* <div> {(name||image)&&<i className="bi bi-pencil-square" ></i>}</div> */}
-                {userInfo.hasOwnProperty('picture')?<><img src={`http://localhost:3050/images/${userInfo.picture.slice(7)}`} /><br /><br /></>:
+                {userInfo.hasOwnProperty('picture')?<><img src={`http://localhost:3050/images/${userInfo.picture.slice(7)}`} style={{height:'150px',maxWidth:'150px'}} />&nbsp;&nbsp;
+                <i className="bi bi-pencil-square" onClick={()=>{setfileToggle(true)}}></i><br /><br /></>:
                     <div>
                         <form >
                     
@@ -60,8 +73,8 @@ const UserProfile=(props)=>{
                     </div>
                 }
                 {userInfo.hasOwnProperty('name')?<>
-                         <h1>Hola,{userInfo.name}!</h1>
-                         
+                         <span className='h1'>Hola,{userInfo.name}!</span>&nbsp;&nbsp;
+                         <i className="bi bi-pencil-square" onClick={handleEditName}></i>
                     </>:
                  <form onSubmit={handleSubmit}>
                  <input className='form-control'type='text' value={name} name='name' placeholder='Set a profile name' onChange={handleChange} /><br />
@@ -71,7 +84,52 @@ const UserProfile=(props)=>{
 
              </div>
             </center>
+            <Modal show={toggle} onHide={handleClose} backdrop='static' keyboard="False" id='modal'>
+            <Modal.Header >
+            <Modal.Title>Edit Name</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <center>
+                    <form >
+                    
+                    <label className='form-label'>Edit name</label>
+                    <input className='form-control' type='text' placeholder='Enter name' value={name} onChange={(e)=>setName(e.target.value)}/><br />
+                 
+                    </form>
+                </center> 
+            </Modal.Body>
+        
+            <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+                Close
+            </Button>
+            <Button variant="primary" onClick={handleSubmit} >
+                Save Changes
+            </Button>
+            </Modal.Footer>
+        </Modal>
 
+        <Modal show={fileToggle} onHide={handleClose} backdrop='static' keyboard="False" id='modal'>
+            <Modal.Header >
+            <Modal.Title>Edit Profile picture</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <center>
+                    <form >
+                     <input className="form-control" type="file" id="formFile" onChange={handleFileUpload} name='image' />
+                    </form>
+                </center> 
+            </Modal.Body>
+        
+            <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+                Close
+            </Button>
+            <Button variant="primary" onClick={handleButtonClick} >
+                Save Changes
+            </Button>
+            </Modal.Footer>
+        </Modal>
         </div>
     )
 }

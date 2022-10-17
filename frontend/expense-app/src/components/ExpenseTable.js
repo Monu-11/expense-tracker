@@ -91,11 +91,11 @@ const ExpenseTable=React.memo((props)=>{
             <ul className='pagination'>
                 {pageNumbers.map((number)=>{
                     return <li key={number} className='page-item'>
-                        <a href='#' onClick={()=>{
+                        <button onClick={()=>{
                             console.log('clicked page',number)
                              paginate(number) }} className='page-link' style={{fontWeight:currentPage==number&&'bold',color:currentPage==number&&'white', backgroundColor:currentPage==number&&'grey'}}>
                             {number}
-                        </a>
+                        </button>
                     </li>
                 })}
             </ul>
