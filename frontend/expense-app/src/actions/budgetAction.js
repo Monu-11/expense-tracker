@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import swal from 'sweetalert'
 
 export const startCreateBudget=(budget,jwtToken,updateBudget)=>{
     return (dispatch)=>{
@@ -12,6 +12,12 @@ export const startCreateBudget=(budget,jwtToken,updateBudget)=>{
             dispatch(createBudget(budget.data))
             
             console.log('received budget on creating',budget.data)
+            swal({
+                title: "Budget added!",
+                text: `Budget set to Rs. ${budget.data.amount}`,
+                icon: "success",
+                button: "Yayy!",
+              });
         })
         .catch((err)=>{
             console.log(err.message)

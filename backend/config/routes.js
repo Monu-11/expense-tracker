@@ -32,7 +32,6 @@ router.post('/api/register',encryptPassword,userController.createUser)  //create
 router.post('/api/login',userController.login)
 router.put('/api/user/pic',authenticateUser,upload.single('file'),userController.uploadPic)
 router.put('/api/user/name',authenticateUser,userController.insertName)
-router.put('/api/user/name',authenticateUser,userController.setName)
 router.get('/api/user/info',authenticateUser,userController.getInfo)
 
 
