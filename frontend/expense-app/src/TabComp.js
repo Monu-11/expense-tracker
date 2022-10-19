@@ -26,7 +26,9 @@ const TabComp=(props)=>{
     swal({
       title: "Are you sure you want to log out?",
       icon: "warning",
-      buttons: true,
+      buttons: ["No, cancel it!",'Yes, I am sure!'],
+      confirmButtonText: 'Yes, I am sure!',
+      cancelButtonText: "No, cancel it!",
       dangerMode: true,
     })
     .then((willLogout) => {
@@ -59,9 +61,9 @@ const TabComp=(props)=>{
                 <Tab label='Settings' value='/settings' component={Link} to='/settings'/>
                 <Tab label='Profile' value='/profile' component={Link} to='/profile'/>
                 <Button style={{color:'yellow'}} onClick={handleLogOut}>Logout</Button>  
-                {userInfo.picture&&<>
+                {(userInfo.picture||userInfo.name)&&<>
                 {userInfo.name&&<p style={{marginLeft:'770px', marginTop:'10px'}}>Hi, {userInfo.name}</p>}
-                <img src={`http://localhost:3050/images/${userInfo.picture.slice(7)}`} style={{height:'40px',marginLeft:'10px', marginTop:'5px', width:'40px'}} />
+                {userInfo.picture&&<img src={`http://localhost:3050/images/${userInfo.picture.slice(7)}`} style={{height:'40px',marginLeft:'10px', marginTop:'5px', width:'40px'}} />}
                 </>}
             </>
                           

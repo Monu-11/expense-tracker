@@ -1,11 +1,13 @@
 import React,{useState} from "react";
 import { startCreateCategory } from '../actions/categoriesAction'
-import {useDispatch} from 'react-redux'
+import {useDispatch,useSelector} from 'react-redux'
 import { startEditCategory } from "../actions/categoriesAction";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const CategoryForm=(props)=>{
     const {formSubmitted}=props
+    const budget=useSelector(state=>state.budget)
+    console.log('budget in category form',budget)
     const err={}
     const [errors,setErrors]=useState({})
     console.log('inside CategoryForm ')
@@ -55,7 +57,7 @@ const CategoryForm=(props)=>{
                         {errors&&<p style={{color:'red'}}>{errors.categoryError}</p>}
                     </div>
                     <div className="col-md-3">
-                         <input type='submit' className='btn btn-success categoryBtn' value={editCategory?'Update':'Add'}  />
+                         <input type='submit' className='btn btn-success categoryBtn' disabled={!(Object.entries(budget).length)}value={editCategory?'Update':'Add'}  />
                          
                     </div>
                     
