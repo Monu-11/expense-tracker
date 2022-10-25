@@ -7,7 +7,7 @@ import { clearUserInfo, startGetPicture } from './userAction';
 
 export const startLogin=(loginData,clearInput,redirect,setFormIssues)=>{
     return (dispatch)=>{
-        axios.post('http://localhost:3050/api/login',loginData)
+        axios.post('http://localhost:3070/api/login',loginData)
             .then((res)=>{
                 console.log(res.data)
                  if(res.data.hasOwnProperty('token')){

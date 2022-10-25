@@ -1,12 +1,15 @@
 const express=require('express')
-const port =3050
+const port =3070
 const app=express()
 const cors=require('cors')
 app.use(cors())
 app.use('/images',express.static('images'))
-const configureDb=require('./config/database')
-configureDb()
+const configureDB = require('./config/database')
+
+
 app.use(express.json())
+configureDB()
+
 const router=require('./config/routes')
 app.use(router)
 

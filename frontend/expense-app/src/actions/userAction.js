@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const startAddProfilePicture=(data,token)=>{
     return (dispatch)=>{
-        axios.put('http://localhost:3050/api/user/pic',data,{
+        axios.put('http://localhost:3070/api/user/pic',data,{
             headers:{
                 Authorization:token.token
             }
@@ -26,7 +26,7 @@ const addPicture=(pic)=>{
 
 export const startGetPicture=(token)=>{
     return(dispatch)=>{
-        axios.get('http://localhost:3050/api/user/info',{
+        axios.get('http://localhost:3070/api/user/info',{
             headers:{
                 Authorization:token.token
             }
@@ -49,7 +49,7 @@ const getPicture=(pic)=>{
 
 export const startAddName=(data,token)=>{
     return (dispatch)=>{
-        axios.put('http://localhost:3050/api/user/name',data,{
+        axios.put('http://localhost:3070/api/user/name',data,{
             headers:{
                 Authorization:token.token
             }

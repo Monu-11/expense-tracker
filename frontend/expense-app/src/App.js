@@ -8,7 +8,6 @@ import { startGetCategories } from './actions/categoriesAction';
 import { startGetExpenses } from './actions/ExpenseAction';
 import { startGetAllDeletedExpenses } from './actions/deletedExpensesAction';
 import {startGetPicture} from './actions/userAction'
-import AppLogo from './img/appLogo.jfif'
 import TabComp from './TabComp';
 
 
@@ -19,7 +18,7 @@ const App=(props)=>{
   console.log('token in App.js',token)
   useEffect(()=>{
     if(token){
-      document.title='Expenseeve'
+      document.title='Expense-tracker'
       dispatch(startGetCategories(token))
       dispatch(startGetExpenses(token))
       dispatch(startGetAllDeletedExpenses(token))

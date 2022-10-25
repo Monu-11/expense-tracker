@@ -2,7 +2,7 @@ import axios from 'axios'
 import { createDeletedExpense } from './deletedExpensesAction'
 export const startGetExpenses=(token)=>{
     return (dispatch)=>{
-        axios.get('http://localhost:3050/api/expenses',{headers:{
+        axios.get('http://localhost:3070/api/expenses',{headers:{
             Authorization:token.token
         }})
             .then((res)=>{
@@ -24,7 +24,7 @@ export const getExpenses=(expenses)=>{
 export const startAddExpense=(expense,token,clearInput)=>{
 
     return (dispatch)=>{
-        axios.post('http://localhost:3050/api/expenses',expense,{
+        axios.post('http://localhost:3070/api/expenses',expense,{
             headers:{
                 Authorization:token.token
             }
@@ -47,7 +47,7 @@ const addExpense=(expense)=>{
 
 export const startEditExpense=(id,expense,token,handleToggle)=>{
     return (dispatch)=>{
-        axios.put(`http://localhost:3050/api/expenses/${id}`,expense,{
+        axios.put(`http://localhost:3070/api/expenses/${id}`,expense,{
             headers:{
                 Authorization:token.token
             }
@@ -74,7 +74,7 @@ export const editExpense=(expense)=>{
 
 export const startDeleteExpense=(id,token)=>{
     return (dispatch)=>{
-        axios.delete(`http://localhost:3050/api/expenses/${id}`,{
+        axios.delete(`http://localhost:3070/api/expenses/${id}`,{
             headers:{
                 Authorization:token.token
             }

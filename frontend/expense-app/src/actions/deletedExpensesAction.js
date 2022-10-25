@@ -3,7 +3,7 @@ import { undoExpenseDelete } from './ExpenseAction'
 
 export const startGetAllDeletedExpenses=(token)=>{
     return (dispatch)=>{
-        axios.get('http://localhost:3050/api/expenses/deleted',{
+        axios.get('http://localhost:3070/api/expenses/deleted',{
             headers:{
                 Authorization:token.token
             }
@@ -41,7 +41,7 @@ export const startUndoDelete=(id,token)=>{
     console.log('token in Undo Action',token)
     return(dispatch)=>{
 
-        axios.put(`http://localhost:3050/api/expenses/undo/${id}`,{},{
+        axios.put(`http://localhost:3070/api/expenses/undo/${id}`,{},{
             headers:{
                 Authorization:token.token
             }

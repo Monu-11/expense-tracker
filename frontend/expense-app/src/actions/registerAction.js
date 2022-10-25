@@ -5,7 +5,7 @@ export const startRegister=(registerData,clearInput,redirect)=>{
     console.log('hi')
     return(dispatch)=>{
         console.log('yo')
-        axios.post('http://localhost:3050/api/register',registerData)
+        axios.post('http://localhost:3070/api/register',registerData)
         .then((res)=>{
             
             clearInput()

@@ -3,7 +3,7 @@ import { getExpenses } from './ExpenseAction'
 
 export const startCreateCategory=(category,token)=>{
     return (dispatch)=>{
-        axios.post('http://localhost:3050/api/categories',category,{
+        axios.post('http://localhost:3070/api/categories',category,{
             headers:{
                 Authorization:token.token
             }
@@ -26,7 +26,7 @@ const createCategory=(categoryData)=>{
 
 export const startGetCategories=(token)=>{
     return (dispatch)=>{
-        axios.get('http://localhost:3050/api/categories',{headers:{
+        axios.get('http://localhost:3070/api/categories',{headers:{
             Authorization:token.token
         }})
             .then((res)=>{
@@ -47,7 +47,7 @@ const getCategories=(categories)=>{
 export const startEditCategory=(editedCategory,id,token,changeToggle)=>{
     return(dispatch)=>{
         console.log('to be edited category',editedCategory.name)
-        axios.put(`http://localhost:3050/api/categories/${id}`,editedCategory,
+        axios.put(`http://localhost:3070/api/categories/${id}`,editedCategory,
         {headers:{
             Authorization:token.token
         }})
@@ -72,7 +72,7 @@ const editCategory=(category)=>{
 
 export const startDeleteCategory=(id,token)=>{
     return(dispatch)=>{
-        axios.delete(`http://localhost:3050/api/categories/${id}`,{
+        axios.delete(`http://localhost:3070/api/categories/${id}`,{
             headers:{
                 Authorization:token.token
             }

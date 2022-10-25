@@ -3,7 +3,7 @@ import swal from 'sweetalert'
 
 export const startCreateBudget=(budget,jwtToken,updateBudget)=>{
     return (dispatch)=>{
-        axios.post('http://localhost:3050/api/budget',budget,{
+        axios.post('http://localhost:3070/api/budget',budget,{
             headers:{
                 Authorization:jwtToken.token
             }
@@ -35,7 +35,7 @@ const createBudget=(amount)=>{
 export const startGetBudget=(jwtToken)=>{
     console.log('jwt in header',jwtToken)
     return (dispatch)=>{
-        axios.get('http://localhost:3050/api/budget',{headers:{
+        axios.get('http://localhost:3070/api/budget',{headers:{
             Authorization:jwtToken.token
         }})
             .then((res)=>{
